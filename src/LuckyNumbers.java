@@ -8,8 +8,8 @@ public class LuckyNumbers {
        and returns that random number
      */
     public int randomIntegerBetween(int min, int max) {
-        double randomNum = (int) (Math.random() * ((max - min) + 1) + min;
-        return (int)randomNum;
+        int randomNum = (int) (Math.random() * ((max - min) + 1) + min);
+        return randomNum;
     }
 
     /* Generates and returns a String containing lucky numbers
@@ -27,7 +27,14 @@ public class LuckyNumbers {
        This method should call your randomIntegerBetween method above multiple times
       */
     public String getLuckyNumbers() {
-        return randomIntegerBetween(1, 65) + randomIntegerBetween(1, 65) + randomIntegerBetween(1, 65) + randomIntegerBetween(1, 65) + randomIntegerBetween(1, 30);
+        int ballCount = 0;
+        String luckyNumber = String.valueOf(randomIntegerBetween(1, 65)) + " ";
+        while (ballCount < 4) {
+            ballCount ++;
+            luckyNumber += String.valueOf(randomIntegerBetween(1, 65)) + " ";
+        }
+        String superBall = String.valueOf(randomIntegerBetween(1, 30)) + " ";
+        return "Your lucky numbers are: " + luckyNumber + "\nThe super ball is: " + superBall;
     }
 }
 
